@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kick X Venny Roleplay</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 80px 20px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #000000;
+            font-family: 'Poppins', sans-serif;
+            color: #FFFFFF;
+            box-sizing: border-box;
+        }
+        .main-container {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1000px;
+            width: 100%;
+            gap: 30px;
+            margin-top: 60px;
+            flex-wrap: wrap; /* Ekran küçülünce kutular kayar */
+        }
+        .title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(24px, 5vw, 36px); /* Esnek font boyutu */
+            color: #FFFFFF;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            padding: 0 10px;
+        }
+        .channel-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+            min-width: 150px; /* Minimum genişlik */
+            flex: 1; /* Esnek genişlik */
+        }
+        .channel-title {
+            font-size: clamp(16px, 4vw, 20px); /* Esnek font */
+            color: #FFFFFF;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #FFFFFF;
+            padding-bottom: 5px;
+            width: 100%;
+        }
+        .stream-box {
+            background: #1a1a1a;
+            color: #FFFFFF;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 150px;
+            margin: 8px 0;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            touch-action: manipulation; /* Mobil dokunma için */
+        }
+        .stream-box:hover, .stream-box:active {
+            background: #FFFFFF;
+            color: #000000;
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+        .stream-box h3 {
+            margin: 0;
+            font-size: clamp(14px, 3vw, 16px); /* Esnek font */
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+        .stream-box.active {
+            animation: pulse 0.5s ease;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .reddit-section {
+            margin-top: 40px;
+            text-align: center;
+            width: 100%;
+        }
+        /* Mobil ve PC optimizasyonu */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            .channel-section {
+                width: 100%;
+                max-width: 300px; /* Mobil için genişlet */
+            }
+            .stream-box {
+                max-width: 100%; /* Tam genişlik */
+                padding: 15px; /* Daha rahat dokunma alanı */
+            }
+            .title {
+                top: 10px; /* Daha az boşluk */
+            }
+            .reddit-section {
+                margin-top: 30px;
+            }
+        }
+        @media (min-width: 769px) {
+            .channel-section {
+                flex: 1 1 200px; /* PC’de dengeli genişlik */
+            }
+            .stream-box {
+                max-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Kick X Venny Roleplay</div>
+    <div class="main-container">
+        <!-- Odisnos (Sol) -->
+        <div class="channel-section">
+            <div class="channel-title">Odisnos’un Kanalı</div>
+            <a href="https://kick.com/odisnos" target="_blank" style="text-decoration: none;">
+                <div class="stream-box" id="herhangi">
+                    <h3>Herhangi Bir Gün</h3>
+                </div>
+            </a>
+        </div>
+
+        <!-- Burak (Orta) -->
+        <div class="channel-section">
+            <div class="channel-title">Burak’ın Kanalı</div>
+            <a href="https://kick.com/burak" target="_blank" style="text-decoration: none;">
+                <div class="stream-box" id="sali">
+                    <h3>Salı</h3>
+                </div>
+            </a>
+            <a href="https://kick.com/burak" target="_blank" style="text-decoration: none;">
+                <div class="stream-box" id="carsamba">
+                    <h3>Çarşamba</h3>
+                </div>
+            </a>
+            <a href="https://kick.com/burak" target="_blank" style="text-decoration: none;">
+                <div class="stream-box" id="cuma">
+                    <h3>Cuma</h3>
+                </div>
+            </a>
+        </div>
+
+        <!-- Flavorr (Sağ) -->
+        <div class="channel-section">
+            <div class="channel-title">Flavorr’un Kanalı</div>
+            <a href="https://kick.com/flavorr" target="_blank" style="text-decoration: none;">
+                <div class="stream-box" id="pazartesi">
+                    <h3>Pazartesi</h3>
+                </div>
+            </a>
+            <a href="https://kick.com/flavorr" target="_blank" style="text-decoration: none;">
+                <div class="stream-box" id="persembe">
+                    <h3>Perşembe</h3>
+                </div>
+            </a>
+            <a href="https://kick.com/flavorr" target="_blank" style="text-decoration: none;">
+                <div class="stream-box" id="cumartesi">
+                    <h3>Cumartesi</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Reddit Kutusu (Alt) -->
+    <div class="reddit-section">
+        <a href="https://www.reddit.com/r/MIQARATAYFA/?rdt=49856" target="_blank" style="text-decoration: none;">
+            <div class="stream-box" id="reddit">
+                <h3>Reddit</h3>
+            </div>
+        </a>
+    </div>
+
+    <script>
+        // Tıklama efekti
+        const boxes = document.querySelectorAll('.stream-box');
+        boxes.forEach(box => {
+            box.addEventListener('click', () => {
+                box.classList.add('active');
+                setTimeout(() => {
+                    box.classList.remove('active');
+                }, 500);
+            });
+        });
+
+        // Bugün hangi günse kutuyu vurgula
+        const today = new Date().getDay();
+        const days = ['pazar', 'pazartesi', 'sali', 'carsamba', 'persembe', 'cuma', 'cumartesi'];
+        const currentDay = days[today];
+
+        if (currentDay === 'pazartesi') document.getElementById('pazartesi').style.border = '2px solid #FFFFFF';
+        else if (currentDay === 'persembe') document.getElementById('persembe').style.border = '2px solid #FFFFFF';
+        else if (currentDay === 'cumartesi') document.getElementById('cumartesi').style.border = '2px solid #FFFFFF';
+        else if (currentDay === 'sali') document.getElementById('sali').style.border = '2px solid #FFFFFF';
+        else if (currentDay === 'carsamba') document.getElementById('carsamba').style.border = '2px solid #FFFFFF';
+        else if (currentDay === 'cuma') document.getElementById('cuma').style.border = '2px solid #FFFFFF';
+    </script>
+
+</body></html>
